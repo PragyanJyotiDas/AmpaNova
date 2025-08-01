@@ -2,7 +2,7 @@
 
 This project simulates a mixed-signal function generator along with various analog signal processing circuits, including filtering, modulation, mathematical operations, and ADC-DAC interfacing. The simulation is done using **LTspice**, and the main schematic file is `draft25.asc`.
 
->  **Note**: To properly simulate this system, **both `draft25.asc` and its associated `.asy` symbol files must be present in the same LTspice working directory**.
+>  **Note**: To properly simulate this system, ** `Main_circuit .asc`, `Draft23symbiol.asc` and its associated `Draft23symbiol.asy` symbol files must be present in the same LTspice working directory**.
 
 ---
 
@@ -64,8 +64,8 @@ ADC to DAC Interface (Final Block)
 
 Running the Simulation
 
-1. Open `draft23.asc` in LTspice.
-2. Ensure the required `.asy` custom symbol files are placed in the appropriate folder.
+1. Open `Main_circuit.asc` in LTspice.
+2. Ensure the required `.asy` and `draft23symbiol.asc` files are placed in the appropriate folder.
 3. Use `.tran 60m` to view meaningful analog behavior over time.
 4. Use **voltage probes** to examine waveforms at key nodes.
 5. Move the input signal to the desired circuit block to test its individual response.
@@ -74,10 +74,10 @@ Running the Simulation
 
 Files Required
 
-- `draft23.asc` – Main LTspice schematic
-- `.asy` files – Custom component symbols used in the schematic
+- `Main_circuit.asc` – Main LTspice schematic
+- `.asy` and `draft23symbiol.asc` files – Custom component symbols used in the schematic
 
-> These two file types are **mandatory** to simulate and visualize the entire analog computing architecture.
+> These two file types are **mandatory** in same folderto simulate and visualize the circuits made.
 
 ---
 
