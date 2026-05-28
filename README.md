@@ -1,87 +1,94 @@
-# Mixed-Signal Function Generator and Signal Processing System
+# ⚡ Mixed-Signal Function Generator & Signal Processing System
 
-This project simulates a mixed-signal function generator along with various analog signal processing circuits, including filtering, modulation, mathematical operations, and ADC-DAC interfacing. The simulation is done using **LTspice**, and the main schematic file is `draft25.asc`.
+A comprehensive **LTspice simulation** of a mixed-signal function generator paired with analog signal processing circuits — covering filtering, modulation, mathematical operations, and ADC-DAC interfacing.
 
->  **Note**: To properly simulate this system, ** `Main_circuit .asc`, `Draft23symbiol.asc` and its associated `Draft23symbiol.asy` symbol files must be present in the same LTspice working directory**.
-
----
-
-Simulation Settings     
-
-Run the simulation with the following directive for clear and stable waveform observation:.tran 60m
-
-
-Avoid using very large simulation times. A 60ms transient analysis provides a balance between visibility and detail.
+> 📁 **Important**: `Main_circuit.asc`, `Draft23symbiol.asc`, and its associated `Draft23symbiol.asy` symbol file **must all be present in the same LTspice working directory** for the simulation to run correctly.
 
 ---
 
-Circuit Overview
+## 🗂️ Table of Contents
 
-Function Generator 
+- [Circuit Overview](#-circuit-overview)
+- [Simulation Settings](#-simulation-settings)
+- [Running the Simulation](#-running-the-simulation)
+- [Files Required](#-files-required)
 
-- Produces four selectable waveforms: **sine**, **square**, **triangular**, and **quadratic**.
+---
 
-Frequency Doubler
+## 🔭 Circuit Overview
 
+### 🌊 Function Generator
+Produces four selectable waveforms:
+- 🔵 **Sine**
+- 🟥 **Square**
+- 🔺 **Triangular**
+- 📈 **Quadratic**
+
+---
+
+### 📡 Frequency Doubler
 - A duplicated version of the function generator.
 - Performs **frequency doubling** using analog manipulation techniques.
 
 ---
 
-###Differential Equation Solver Circuits (Middle Block)
-
-- First and second order DE solver circuits are placed next to each other.
+### 🧮 Differential Equation Solver Circuits *(Middle Block)*
+- **First-order** and **second-order** DE solver circuits placed side by side.
 
 ---
 
-Switching System for Adder (Below DE Solvers)
-
+### 🔀 Switching System for Adder *(Below DE Solvers)*
 - Implements switching control to dynamically select input signals for a **single analog adder**.
 
-> To test each circuit individually, **move the input to the specific circuit's input node**, as only one is controlled and switched at a time.
+> ⚠️ To test each circuit individually, **move the input to that circuit's specific input node** — only one is controlled and switched at a time.
 
 ---
 
-Filtering, AM, and Multiplier Circuits (Lower Section)
+### 📻 Filtering, AM & Multiplier Circuits *(Lower Section)*
 
-- **Filtering Circuit**: Basic low, high and band pass filter made
-- **Amplitude Modulation (AM) Circuit**:
-  - Uses a diode and LC tank to perform envelope shaping.
-  - Half-wave signal is converted into a full-wave-like envelope using resonance.
-- **Multiplier Circuit**:
-  
-
----
-
-ADC to DAC Interface (Final Block)
-
-- Demonstrates analog-digital interfacing.
-- Converts analog signals to discrete values and back to analog using:
-  - ADC mock-up with comparators
-  - DAC reconstruction using summing amplifiers or weighted resistors
+| Block | Description |
+|---|---|
+| 🎛️ **Filter Circuit** | Low-pass, high-pass, and band-pass filter implementations |
+| 📶 **AM Circuit** | Uses a diode + LC tank for envelope shaping; half-wave converted to full-wave-like envelope via resonance |
+| ✖️ **Multiplier Circuit** | Analog signal multiplication |
 
 ---
 
-Running the Simulation
-
-1. Open `Main_circuit.asc` in LTspice.
-2. Ensure the required `.asy` and `draft23symbiol.asc` files are placed in the appropriate folder.
-3. Use `.tran 60m` to view meaningful analog behavior over time.
-4. Use **voltage probes** to examine waveforms at key nodes.
-5. Move the input signal to the desired circuit block to test its individual response.
+### 🔄 ADC ↔ DAC Interface *(Final Block)*
+Demonstrates full analog-digital interfacing:
+- 🔢 **ADC mock-up** using comparators
+- 🔁 **DAC reconstruction** via summing amplifiers or weighted resistors
 
 ---
 
-Files Required
+## ⚙️ Simulation Settings
 
-- `Main_circuit.asc` – Main LTspice schematic
-- `.asy` and `draft23symbiol.asc` files – Custom component symbols used in the schematic
+Run the simulation with the following SPICE directive for clear and stable waveform observation:
 
-> These two file types are **mandatory** in same folderto simulate and visualize the circuits made.
+```spice
+.tran 60m
+```
+
+> 🕒 A **60 ms transient analysis** provides the ideal balance between waveform visibility and detail. Avoid excessively large simulation times.
 
 ---
 
+## ▶️ Running the Simulation
 
+1. 📂 Open `Main_circuit.asc` in **LTspice**.
+2. ✅ Ensure `Draft23symbiol.asy` and `Draft23symbiol.asc` are in the **same folder**.
+3. ⏱️ Set the simulation directive to `.tran 60m`.
+4. 🔍 Use **voltage probes** to examine waveforms at key nodes.
+5. 🔌 Move the input signal to the desired circuit block to test its individual response.
 
 ---
 
+## 📋 Files Required
+
+| File | Purpose |
+|---|---|
+| `Main_circuit.asc` | 🗺️ Main LTspice schematic |
+| `Draft23symbiol.asc` | 🧩 Supporting subcircuit schematic |
+| `Draft23symbiol.asy` | 🎨 Custom component symbol file |
+
+> 🚨 The `.asc` and `.asy` files are **mandatory** and must reside in the **same directory** as the main schematic to simulate and visualize the circuits correctly.
